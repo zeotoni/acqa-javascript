@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixa de Confirmação</title>
+</head>
+
+<body>
+    <p>Clique para confirmar</p>
+    <button id="btn_confirm">Confirmar</button>
+</body>
+<script>
+    const btn = document.querySelector('#btn_confirm')
+
+    btn.addEventListener('click', () => {
+        const resposta = confirm('Tem certeza que deseja confirmar ?')
+
+        if (resposta) {
+            alert('Confirmação realizada!');
+        } else {
+            alert('Operação cancelada!');
+        }
+    })
+</script>
+</html>
