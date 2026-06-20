@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nome do Mês</title>
+</head>
+
+<body>
+    <h1>Mês do ano</h1>
+
+
+    <p>Clique para digitar um mês do ano.</p>
+    <p id="demo"></p>
+
+    <button id="btn_mes">Escolher</button>
+</body>
+<script>
+    const btn = document.querySelector('#btn_mes')
+    const meses = [
+        { numero: 1, nome: "Janeiro" },
+        { numero: 2, nome: "Fevereiro" },
+        { numero: 3, nome: "Março" },
+        { numero: 4, nome: "Abril" },
+        { numero: 5, nome: "Maio" },
+        { numero: 6, nome: "Junho" },
+        { numero: 7, nome: "Julho" },
+        { numero: 8, nome: "Agosto" },
+        { numero: 9, nome: "Setembro" },
+        { numero: 10, nome: "Outubro" },
+        { numero: 11, nome: "Novembro" },
+        { numero: 12, nome: "Dezembro" }
+    ];
+
+
+    btn.addEventListener('click', () => {
+        let paragrafoMes = document.querySelector('#demo')
+        paragrafoMes.innerHTML = ''
+
+        let mesDigitado = prompt('Digite um número de um Mês')
+
+        if(mesDigitado === null) {
+            return
+        }
+
+
+        const mesEncontrado = meses.find((mes) =>
+            mes.numero === Number(mesDigitado)
+        )
+
+        if (mesEncontrado) {
+            paragrafoMes.innerHTML =
+                mesEncontrado.numero + " - " + mesEncontrado.nome;
+        } else {
+            alert('É necessário digitar um mês válido!')
+        }
+    })
+</script>
+
+</html>
