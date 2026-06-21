@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números pares</title>
+</head>
+
+<body>
+    <h1>Números pares</h1>
+
+    <p>Clique para escolher um número.</p>
+    <button id="btn_numero">Escolher</button>
+
+
+    <p id="numeroDigitado"></p>
+    <p id="numerosPares"></p>
+    <p id="qtdPares"></p>
+    <p id="somaPares"></p>
+
+</body>
+<script>
+    const btn = document.querySelector('#btn_numero');
+
+    btn.addEventListener('click', () => {
+        let numero = document.getElementById('numeroDigitado');
+        let numerosPares = document.getElementById('numerosPares');
+        let qtdPares = document.getElementById('qtdPares');
+        let somaPares = document.getElementById('somaPares');
+
+        const numeroDigitado = prompt('Digite um número maior que 0');
+
+
+        if (numeroDigitado === null || Number(numeroDigitado) <= 0) {
+            alert('O número deve ser maior que 0');
+            return;
+        }
+
+        let numeroContagem = Number(numeroDigitado);
+        let pares = [];
+        let soma = 0;
+
+        while (numeroContagem > 0) {
+            if (numeroContagem % 2 === 0) {
+                pares.push(numeroContagem);
+                soma += numeroContagem;
+            }
+
+            numeroContagem--;
+        }
+
+        numero.innerHTML = `Você digitou o número ${numeroDigitado}.`
+        numerosPares.innerHTML = `Números pares: ${pares.reverse()}.`
+        qtdPares.innerHTML = `Quantidade de pares: ${pares.length} números.`
+        somaPares.innerHTML = `Soma dos pares: ${soma}.`
+    })
+</script>
+
+</html>
