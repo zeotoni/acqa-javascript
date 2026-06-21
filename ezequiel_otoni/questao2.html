@@ -17,7 +17,7 @@
     <button id="btn_mes">Escolher</button>
 </body>
 <script>
-    const btn = document.querySelector('#btn_mes')
+    const btn = document.querySelector('#btn_mes');
     const meses = [
         { numero: 1, nome: "Janeiro" },
         { numero: 2, nome: "Fevereiro" },
@@ -35,13 +35,13 @@
 
 
     btn.addEventListener('click', () => {
-        let paragrafoMes = document.querySelector('#demo')
-        paragrafoMes.innerHTML = ''
+        let paragrafoMes = document.querySelector('#demo');
+        paragrafoMes.innerHTML = '';
 
-        let mesDigitado = prompt('Digite um número de um Mês')
+        let mesDigitado = prompt('Digite um número de um Mês');
 
         if(mesDigitado === null) {
-            return
+            return;
         }
 
 
@@ -53,7 +53,7 @@
             paragrafoMes.innerHTML =
                 mesEncontrado.numero + " - " + mesEncontrado.nome;
         } else {
-            alert('É necessário digitar um mês válido!')
+            alert('É necessário digitar um mês válido!');
         }
     })
 </script>
