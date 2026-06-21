@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lista de Nomes</title>
+</head>
+
+<body>
+    <h1>Lista de Nomes</h1>
+
+    <p>Clique para escolher o tamanho da lista de nomes.</p>
+    <button id="btn_numero">Escolher</button>
+
+    <p id="qtdNomes"></p>
+    <p id="ordemDigitados"></p>
+    <p id="ordemAlfabetica"></p>
+    <p id="upperNomes"></p>
+</body>
+<script>
+    const btn = document.querySelector('#btn_numero');
+
+    const qtdNomes = document.getElementById('qtdNomes');
+    const ordemDigitados = document.getElementById('ordemDigitados');
+    const ordemAlfabetica = document.getElementById('ordemAlfabetica');
+    const upperNomes = document.getElementById('upperNomes');
+
+
+    btn.addEventListener('click', () => {
+        let listaTamanho = prompt('Digite a quantidade de nomes da lista: ');
+        let listaNomes = [];
+
+        if (listaTamanho === null || Number(listaTamanho) <= 0 || isNaN(Number(listaTamanho))) {
+            alert('A lista deve ter um tamanho válido!');
+            return;
+        }
+        
+        let numeroEscolha = 1;
+
+        while (Number(listaTamanho) > 0) {
+            let nome = prompt(`Digite o ${numeroEscolha}º nome: `);
+
+            if (nome === null || nome.trim() === '') {
+                alert('É necessário digitar nomes válidos!');
+                return;
+            }
+
+            if (isNaN(Number(nome))) {
+                listaNomes.push(nome);
+    
+                listaTamanho--;
+                numeroEscolha++;
+            }
+        }
+
+        let uppCaseList = listaNomes.map(f => f.toUpperCase());
+        let sortedList = [...listaNomes].sort();
+
+        qtdNomes.innerHTML = `A quantidade de nomes é: ${listaNomes.length} nomes.`
+        ordemDigitados.innerHTML = `A ordem de digitação dos nomes é: ${listaNomes.join(', ')}.`
+        ordemAlfabetica.innerHTML = `A ordem alfabética dos nomes é: ${sortedList.join(', ')}.`
+        upperNomes.innerHTML = `A lista com nomes em maiúsculo é: ${uppCaseList.join(', ')}.`
+
+    })
+</script>
+
+</html>
